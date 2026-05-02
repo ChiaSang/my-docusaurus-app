@@ -1,0 +1,62 @@
+---
+slug: api-demo-post
+title: 用 MDX 写一个交互式 API 博客
+authors: [zhangliang]
+tags: [docusaurus, hello, facebook, hola]
+---
+
+{/* truncate */}
+
+import {useEffect, useState} from 'react';
+
+export function ApiResult() {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    const controller = new AbortController();
+
+    fetch('https://free.mockerapi.com/get', {signal: controller.signal})
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`请求失败：${response.status}`);
+        }
+        return response.json();
+      })
+      .then(setData)
+      .catch((err) => {
+        if (err?.name !== 'AbortError') {
+          setError(err?.message || '请求失败');
+        }
+      })
+      .finally(() => setLoading(false));
+
+    return () => controller.abort();
+  }, []);
+
+  if (loading) {
+    return <p>正在加载接口数据…</p>;
+  }
+
+  if (error) {
+    return <p style={{color: 'var(--ifm-color-danger)'}}>加载失败：{error}</p>;
+  }
+
+  return <pre>{JSON.stringify(data, null, 2)}</pre>;
+}
+
+# 用 MDX 写一个交互式 API 博客
+
+这篇文章演示如何在博客里直接写 React 组件，并请求 `https://free.mockerapi.com/get`，把返回内容渲染出来。
+
+## 效果
+
+<ApiResult />
+
+## 写法要点
+
+- 在 MDX 顶部写 Front Matter
+- 用 `import` 引入 React 钩子
+- 用 `export function` 定义可复用组件
+- 在正文中直接插入 `<ApiResult />`

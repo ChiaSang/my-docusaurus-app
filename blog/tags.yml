@@ -1,19 +1,54 @@
 facebook:
   label: Facebook
   permalink: /facebook
-  description: Facebook tag description
+  description: Facebook 相关文章
 
 hello:
-  label: Hello
+  label: 问候
   permalink: /hello
-  description: Hello tag description
+  description: 问候相关文章
 
 docusaurus:
   label: Docusaurus
   permalink: /docusaurus
-  description: Docusaurus tag description
+  description: Docusaurus 相关文章
+
+tutorial:
+  label: 教程
+  permalink: /tutorial
+  description: 教程与入门内容
+
+mdx:
+  label: MDX
+  permalink: /mdx
+  description: MDX 相关文章
+
+react:
+  label: React
+  permalink: /react
+  description: React 相关文章
+
+api:
+  label: API
+  permalink: /api
+  description: API 相关文章
+
+markdown:
+  label: Markdown
+  permalink: /markdown
+  description: Markdown 相关文章
+
+功能测试:
+  label: 功能测试
+  permalink: /功能测试
+  description: 功能测试文章
+
+入门教程:
+  label: 入门教程
+  permalink: /入门教程
+  description: 入门教程文章
 
 hola:
-  label: Hola
+  label: 西语问候
   permalink: /hola
-  description: Hola tag description
+  description: 西语问候相关文章

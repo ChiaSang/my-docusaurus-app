@@ -1,0 +1,35 @@
+---
+slug: ai-tokens-comparison
+title: 不同 AI 模型的 Tokens 消耗对比
+authors: [zhangliang]
+tags: [教程, AI, Token, Markdown]
+---
+
+import {AnimatedBars, TokenSummary} from '@site/src/components/TokenComparisonChart';
+
+# 不同 AI 模型的 Tokens 消耗对比
+
+这篇文章用一个动态图表，比较常见 AI 模型在同一类任务中的 token 消耗。
+
+## 观察点
+
+- **输入 tokens**：提示词、上下文、系统消息
+- **输出 tokens**：模型生成的回答内容
+- **总消耗**：输入与输出之和
+
+## 动态图表
+
+<TokenSummary />
+
+<AnimatedBars />
+
+## 简单结论
+
+- 长上下文任务通常更吃输入 tokens
+- 生成越长，输出 tokens 占比越高
+- 选模型时要同时看效果和 token 成本
+
+## 示例说明
+
+上面的图表是基于示例数据绘制的，适合展示比较方法。你也可以把 `rows` 替换成真实 API 统计数据。
+

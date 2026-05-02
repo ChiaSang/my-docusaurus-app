@@ -1,0 +1,84 @@
+---
+sidebar_position: 99
+title: 用 MDX 写文章
+---
+
+# 用 MDX 写文章
+
+MDX = Markdown + React。适合写普通文章，也适合写带交互的内容。
+
+## 基本结构
+
+一篇 MDX 文章通常由三部分组成：
+
+1. **Front Matter**：顶部元数据
+2. **正文 Markdown**：标题、列表、引用、代码块
+3. **React 组件**：需要交互时再加
+
+```md
+---
+title: 文章标题
+description: 文章简介
+---
+
+# 正文标题
+
+这里开始写正文。
+```
+
+## 常用写法
+
+### 标题与段落
+
+```md
+# 一级标题
+
+这是一个段落。
+
+## 二级标题
+```
+
+### 列表
+
+```md
+- 第一项
+- 第二项
+- 第三项
+```
+
+### 代码块
+
+```md
+```js
+console.log('你好，MDX');
+```
+```
+
+### 提示框
+
+```md
+:::tip 提示
+这是一个提示框。
+:::
+```
+
+## 使用 React 组件
+
+MDX 最大的特点是可以直接写组件：
+
+```jsx
+export const Badge = ({children}) => (
+  <span style={{padding: '4px 8px', borderRadius: '999px', background: '#1677ff', color: '#fff'}}>
+    {children}
+  </span>
+);
+
+这是一个 <Badge>徽章</Badge>。
+```
+
+## 新手建议
+
+- 先用 Markdown 写正文
+- 需要高亮、按钮、卡片时再加组件
+- 文章文件放在 `docs/` 或 `blog/` 下
+- 保存后运行开发服务器即可热更新
